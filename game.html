@@ -35,10 +35,10 @@
 
         <h2 class="display-5 fw-bold text-body-emphasis">Game Started</h2>
         <div class="col-lg-6 mx-auto">
-            <ul class="txt-game">
-                <li><strong id="liLevel">Level: 1</strong></li>
+            <ul id="ulGame" class="txt-game">
+                <!--<li><strong id="liLevel"></strong></li>
                 <li><strong id="liGuessChance">Guess Chance: 5</strong></li>
-                <li><strong id="liTime">Time: 30 second</strong></li>
+                <li><strong id="liTime">Time: 30 second</strong></li>-->
             </ul>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
                 <div class="input-group input-group-sm mb-3" style="max-width: 200px;">
@@ -48,40 +48,10 @@
             </div>
             <!--Submit Button-->
             <button id="btnSubmit" class="btn btn-primary">Submit</button>
-            <!--Wrong Answer Danger-->
-            <div id="cardType" class="card text-center">
-                <!--<div class="card-header bg-warning text-dark">
-                    Message
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title ">Wrong Answer!</h5>
-                    <p class="card-text">Enter a larger number.</p> rndNum>guessNum => "Enter a larger number" rndNum<guessNum => "Enter a smaller number" 
-                    <button id="btnSubmit" class="btn btn-primary">Try Again</button>
-                </div>-->
+            <!--Message Card-->
+            <div id="cardType" class="card text-center" style="display: none">
+               
             </div>
-            <!--Correct Answer-->
-            <!--<div class="card text-center">
-                <div class="card-header bg-success text-dark">
-                    Message
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title ">Wrong Answer!</h5>
-                    <p class="card-text">Enter a larger number.</p>
-                    <a href="game.html" class="btn btn-primary">Try Again</a>
-                </div>
-            </div>-->
-            <!--Game Over-->
-            <div class="card text-center">
-                <div class="card-header bg-danger text-dark">
-                    Message
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title ">Wrong Answer!</h5>
-                    <p class="card-text">Enter a larger number.</p>
-                    <a href="game.html" class="btn btn-primary">Try Again</a>
-                </div>
-            </div>
-
         </div>
     </div>
     <!--Footer-->
