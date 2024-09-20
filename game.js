@@ -124,4 +124,4 @@ function GameOver() {
     }
 }
 
-//Time
+//Time setInterval(function, 30000)
