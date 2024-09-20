@@ -1,5 +1,5 @@
 var level = 1;
-var rndNum = Math.floor(Math.random() * ((10*level) + 1)) + 1;
+var rndNum = Math.floor(Math.random() * (10*level)) + 1; //+1 min sayý=1
 var guess = 5;
 const btnSubmit = document.getElementById("btnSubmit");
 
@@ -8,7 +8,7 @@ function GameInformation() {
                 <li><strong>Guess Chance: ${guess}</strong></li>
                 <li><strong>Time: </strong></li>` 
 
-    document.getElementById("ulGame").innerHTML += ulGame;
+    document.getElementById("ulGame").innerHTML = ulGame;
 }
 
 //Ne zaman? Submit butonuna basýldýðýnda --input deðer=guessNum
@@ -32,12 +32,14 @@ btnSubmit.onclick = function () {
 }
 
 function GuessNumber(guessNum) {
-    document.getElementById("cardType").style.display = "block";
+    document.getElementById("cardType").style.display = "block"; //card görüntülenmesi saðlanýr
 
     document.getElementById("cardType").innerHTML = ""; //Önceki cardlarý temizlemek için
-
+    
     if (guessNum === rndNum) {
-     //Correct Answer
+        //Submit Button'ý Gizle
+        document.getElementById("btnSubmit").style.display = "none";
+        //Correct Answer
         const successCard =` <div class="card-header bg-success text-dark">
                     Message
                 </div>
@@ -48,14 +50,15 @@ function GuessNumber(guessNum) {
                 </div>`
 
         document.getElementById("cardType").innerHTML += successCard;
-
+        //BÝR SONRAKÝ SEVÝYE (bir sonraki seviyeye geçerken submit butonu display:none)
         const btnNext = document.getElementById("btnNext");
         btnNext.onclick = function () {
             guess = 5;
             level++;
-            let rndNum = Math.floor(Math.random() * ((10 * level) + 1)) + 1;
+            rndNum = Math.floor(Math.random() * ((10 * level) + 1)) + 1;
             document.getElementById("cardType").innerHTML = "";
             document.getElementById("cardType").style.display = "none";
+            document.getElementById("btnSubmit").style.display = "block";
             GameInformation();
             console.log("NewLevel rndNum: " + rndNum);
         }
@@ -113,10 +116,11 @@ function GameOver() {
     btnAgain.onclick = function () {
         document.getElementById("cardType").style.display = "none";
         guess = 5;
-        let rndNum = Math.floor(Math.random() * ((level*10) + 1)) + 1;
         level = 1;
+        rndNum = Math.floor(Math.random() * ((10 * level) + 1)) + 1;
         document.getElementById("cardType").innerHTML = "";
         console.log("New rndNum: " + rndNum);
+        GameInformation();
     }
 }
 
